@@ -6,15 +6,13 @@
 
 ### Preview
 
-#### [在线预览 Live Demo →](http://liaokeyu.com/)
+#### [在线预览 Live Demo →]()
 
 ![](screenshot/jekyll-theme-h2o-realhome.jpg)
 
 ![](screenshot/jekyll-theme-h2o-realm.png)
 
-如果你喜欢这个博客模板，请在右上角star一下，非常感谢～
 
-If you like this theme or using it, please give a ⭐️ for motivation ;)
 
 如果想体验手机浏览效果，可以扫一下二维码：
 
@@ -127,10 +125,10 @@ You can easily get started by modifying _config.yml
 
 ```
 # Site settings
-title: '廖柯宇的独立博客' # 你的博客网站标题
+title: 'XXX的独立博客' # 你的博客网站标题
 description: '很高兴能在这里与你分享我对技术和生活的思考。' # 站点描述
-keyword: '廖柯宇, 廖柯宇的独立博客, 前端, 设计' # 网站关键词
-url: 'http://liaokeyu.com' # 站点url
+keyword: 'XXX, 廖柯宇的独立博客, 前端, 设计' # 网站关键词
+url: '' # 站点url
 baseurl: ''
 
 # Build settings
