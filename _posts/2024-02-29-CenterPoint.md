@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Center Point
-date: 2024-02-29
+date: 2023-05-29
 categories: object detection
-tags: point cloud
+tags: point cloud 论文分享
 ---
 
 # <font class="text-color-151" color="#ff5722">Center Point： Center-based 3D Object Detection and Tracking - 论文理解+部分代码</font>
