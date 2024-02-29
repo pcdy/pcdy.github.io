@@ -6,7 +6,7 @@ categories: object detection
 tags: point cloud
 ---
 
-# Center Point： Center-based 3D Object Detection and Tracking - 论文理解+部分代码
+# <font class="text-color-151" color="#ff5722">Center Point： Center-based 3D Object Detection and Tracking - 论文理解+部分代码</font>
 
 ## 1. 基本信息
 
