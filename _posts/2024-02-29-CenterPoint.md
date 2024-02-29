@@ -43,7 +43,7 @@ tags: point cloud
 
 CenterPoint模型框架如下图所示，包括三部分内容：
 
-![Uploading file..._5oz2qse67]()
+![Uploading file..._5oz2qse67](https://huatu.98youxi.com/markdown/work/uploads/upload_cca04fa0031f4cebbdf3b3f81c304d89.png)
 
 
 1. 3D Backbone，提取点云特征，并映射到二维。文中采用两种方式：VoxelNet和PointPillars方式。此部分内容采用两种典型的3D特征提取主干模型，不是论文创新部分。
