@@ -16,9 +16,10 @@ tags: point cloud
 
 ![image-20230529225922991](https://huatu.98youxi.com/markdown/work/uploads/upload_30723195b66d9a5d981cd9344b2b5d38.png)
 
+
 **支持框架：**
 
-**1. Paddle3D** **https://github.com/PaddlePaddle/Paddle3D** 
+**1. Paddle3D** **https://github.com/PaddlePaddle/Paddle3D**
 
 **2. MMdetection3D** **https://github.com/open-mmlab/mmdetection3d**
 
@@ -32,9 +33,9 @@ tags: point cloud
 
    是否可以**先预测目标及中心**，**再预测目标尺寸和方向**？
 
-   ![image-20230529230643751](E:\CUIT\SIRB\研究生资料\论文阅读分享\fig2.png)
+![](https://huatu.98youxi.com/markdown/work/uploads/upload_4d9dfc264658805377b4459268b0ec2e.png)
 
-2. CenterNet 《Objects as Points》, 2019 CVPR, 引用数2778. 
+2. CenterNet 《Objects as Points》, 2019 CVPR, 引用数2778.
 
    作者前序工作在图像目标检测中提出了CenterNet，可扩展到3维Point Cloud上。
 
@@ -42,7 +43,8 @@ tags: point cloud
 
 CenterPoint模型框架如下图所示，包括三部分内容：
 
-![image-20230529230819200](E:\CUIT\SIRB\研究生资料\论文阅读分享\fig3.png)
+![Uploading file..._5oz2qse67]()
+
 
 1. 3D Backbone，提取点云特征，并映射到二维。文中采用两种方式：VoxelNet和PointPillars方式。此部分内容采用两种典型的3D特征提取主干模型，不是论文创新部分。
 2. Head，采用类似centerNet的方式提取目标中心，基于中心再回归目标的属性，如尺寸，朝向等信息。
@@ -50,7 +52,8 @@ CenterPoint模型框架如下图所示，包括三部分内容：
 
 ### 3.1 3D Backbone
 
-![image-20230531154249918](E:\CUIT\SIRB\研究生资料\论文阅读分享\fig4.png)
+![](https://huatu.98youxi.com/markdown/work/uploads/upload_01dff2be30e768784e083bd57ee79c3d.png)
+
 
 文中采用的两种3D主干网络如上图所示，分别用了VoxelNet和PointPillars的对应部分。以VoxelNet为例对应mmdetection3D代码部分如下：
 
@@ -149,7 +152,7 @@ CenterPoint的检测头采用的类似CenterNet的检测头，在文件 `centerp
 
 这部分主要包括两部分，1是真值的处理部分（真值标签为边界框和类别），2是模型的前向预测部分（预测结果为heatmap等），这两部分必须匹配才能进行代价计算。
 
-以下代码为`centerpoint_head.py`中CenterHead的forward部分，为预测结果：
+以下代码为 `centerpoint_head.py`中CenterHead的forward部分，为预测结果：
 
 ```python
 def forward(self, feats):
@@ -161,7 +164,7 @@ def forward(self, feats):
             tuple(list[dict]): Output results for tasks.
         """
         return multi_apply(self.forward_single, feats)
-    
+  
 # 其中forward_single为：
 def forward_single(self, x):
         """Forward function for CenterPoint.
@@ -192,7 +195,7 @@ def forward_single(self, x):
 """
 ```
 
-真值**原始的数据标注为bbox+cls**，因此要进行对应编码，与预测结果对应，生成heatmap，其编码代码为`centerpoint_head.py`中CenterHead的get_targets部分，其内部又对每个类调用get_targets_single函数：
+真值**原始的数据标注为bbox+cls**，因此要进行对应编码，与预测结果对应，生成heatmap，其编码代码为 `centerpoint_head.py`中CenterHead的get_targets部分，其内部又对每个类调用get_targets_single函数：
 
 ```python
 def get_targets_single(self, gt_bboxes_3d, gt_labels_3d):
@@ -217,9 +220,10 @@ def get_targets_single(self, gt_bboxes_3d, gt_labels_3d):
 
 heatmap关键点用二维高斯核表示，根据三种不同情况，基于IoU和真值的长宽设计heatmap关键点半径r。
 
-![image-20230601231234156](E:\CUIT\SIRB\研究生资料\论文阅读分享\fig5.png)
+![](https://huatu.98youxi.com/markdown/work/uploads/upload_bd4dc71e121473b261fd4528349e5fae.png)
 
-半径r推导过程见上述链接，代码在`mmdet3d\core\utils\gaussian.py`的`gaussian_radius`函数计算：
+
+半径r推导过程见上述链接，代码在 `mmdet3d\core\utils\gaussian.py`的 `gaussian_radius`函数计算：
 
 ```python
 def gaussian_radius(det_size, min_overlap=0.5):
@@ -260,8 +264,12 @@ def gaussian_radius(det_size, min_overlap=0.5):
 
 其模型已成为一种基础的主干网络，并在Nuscenes取得相对好的结果。下图为描述有使用centerpoint的模型结果。
 
-![image-20230601233945743](E:\CUIT\SIRB\研究生资料\论文阅读分享\fig6.png)
+![](https://huatu.98youxi.com/markdown/work/uploads/upload_a90e064ae45504c5a950d08d19be6785.png)
 
+
+其中上图排名第一的模型在整个Lidar模型中以NDS为指标排序，排在第三位，截止2023-06-01.
+
+![](https://huatu.98youxi.com/markdown/work/uploads/upload_dd52a0c4877c2a3a8fdac3a4fa56b806.png)
 其中上图排名第一的模型在整个Lidar模型中以NDS为指标排序，排在第三位，截止2023-06-01.
 
 ![image-20230601234100770](E:\CUIT\SIRB\研究生资料\论文阅读分享\fig7.png)
