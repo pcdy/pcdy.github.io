@@ -14,7 +14,7 @@ tags: point cloud
 
 **CVPR 2021**
 
-![image-20230529225922991](E:\CUIT\SIRB\研究生资料\论文阅读分享\fig1.png)
+![image-20230529225922991][(https://img-blog.csdnimg.cn/direct/cf30d275b7ff46c29bedc3832554c8d4.png)]
 
 **支持框架：**
 
