@@ -270,6 +270,3 @@ def gaussian_radius(det_size, min_overlap=0.5):
 其中上图排名第一的模型在整个Lidar模型中以NDS为指标排序，排在第三位，截止2023-06-01.
 
 ![](https://huatu.98youxi.com/markdown/work/uploads/upload_dd52a0c4877c2a3a8fdac3a4fa56b806.png)
-其中上图排名第一的模型在整个Lidar模型中以NDS为指标排序，排在第三位，截止2023-06-01.
-
-![image-20230601234100770](E:\CUIT\SIRB\研究生资料\论文阅读分享\fig7.png)
