@@ -14,7 +14,7 @@ tags: point cloud
 
 **CVPR 2021**
 
-![image-20230529225922991](https://img-blog.csdnimg.cn/direct/cf30d275b7ff46c29bedc3832554c8d4.png)
+![image-20230529225922991](https://huatu.98youxi.com/markdown/work/uploads/upload_30723195b66d9a5d981cd9344b2b5d38.png)
 
 **支持框架：**
 
